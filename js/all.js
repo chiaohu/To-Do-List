@@ -1,5 +1,6 @@
 var btn = document.querySelector('.btn');
 var list = document.querySelector('.list');
+var body = document.body;
 var data = JSON.parse(localStorage.getItem('datalist')) || [];
 
 //監聽
@@ -21,6 +22,24 @@ function addList(e){
   document.querySelector('.text').value = "";
 }
 
+body.addEventListener('keydown',keyaddList,false)
+
+function keyaddList(e){
+  console.log(e.keyCode)
+  var txt = document.querySelector('.text').value;
+  var todo = {
+    content: txt,
+    star: false, //增加欄位儲存 star
+  };
+  if (e.keyCode == 13){
+    data.push(todo);
+    localStorage.setItem('datalist', JSON.stringify(data));
+  } else {
+    return;
+  }
+  updateList(data);
+  document.querySelector('.text').value = "";
+}
 
 //更新畫面
 function updateList(data){
