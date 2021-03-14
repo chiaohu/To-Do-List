@@ -9,7 +9,7 @@
 
 ### Skill 
 
-* HTML5 
+* HTML
 * CSS 
 * jQuery 
 * Javascript
